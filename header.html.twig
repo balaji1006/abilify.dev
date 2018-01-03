@@ -1,0 +1,47 @@
+<div class="Main__header {{ page_style }}">
+	<div class="header__logo">
+		{{page.logo}}
+	</div>
+	<header class="Menu">
+		<div class="header__top">
+			<div class="container positionstatic">
+				{% if page.top_menu %}
+					{{page.top_menu}}
+				{% endif %}
+			</div>
+		</div>
+		<div class="header__bottom">
+			<div class="container positionstatic">
+				{% if page.main_menu %}
+					{{page.main_menu}}
+				{% endif %}
+			</div>
+		</div>
+	</header>
+	<a class="menu-mobile" href="javascript:;" title="menu icon">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</a>
+	
+	{% if customheader == 'yes' %}
+	{% set imgUrl = file_url(node.field_signup_cardimage.0.entity.uri.value) %}
+	<section class="signup__Sec">
+		<div class="container">			
+			<div class="signup__SecInner">
+				<div class="signup__secleft"><img src="{{ imgUrl }}" alt="paymonth"></div>
+				<div class="signup__secright">{{ node.field_signup_carddescription.value|raw }} </div>
+			</div>			
+		</div>
+	</section>
+	{% else %}
+		<section class="home__savingSec">
+		<div class="container">
+			<div class="home__savingSecInner">
+					{{ current_page_title|raw }}
+				</div>
+		</div>
+	</section>		
+	{% endif %}
+</div>
+
